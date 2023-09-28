@@ -22,6 +22,16 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
+// a route to handle sending JSON for the About us section
+app.get('/about', (req, res) => {
+  // send back some JSON
+  res.json({
+    name: 'Swostik Pati',
+    imageUrl: 'https://avatars.githubusercontent.com/u/67205637?s=96&v=4',
+    description: "Hey there! I'm Swostik Pati, currently soaking up knowledge and experiences at New York University.While I'm majoring in Computer Science & Interactive Media and dabbling a bit in Economics & Design, what I truly love is the journey of learning and meeting incredible folks along the way. At NYU, I've had the chance to help fellow students as a Teaching Assistant, and it's been such a rewarding experience to see those 'aha!' moments. I've also spent some time exploring the fascinating world of research, trying to understand muscle functionality and even dipping my toes into the vast universe of Metaverse. \nOn the side, I've enjoyed collaborating on some tech projects and have also been fortunate enough to work with some wonderful teams at places like Ámaxa and Quizzio. Organizing events at HackAD has been a fun ride, bringing together passionate individuals and seeing ideas come to life. Outside the tech bubble, I find joy in video editing, designing logos, and strumming a tune on my guitar. Life's been a mix of challenges and celebrations, and I'm excited about the road ahead!"
+  })
+})
+
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
@@ -77,6 +87,8 @@ app.post('/messages/save', async (req, res) => {
     })
   }
 })
+
+
 
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
